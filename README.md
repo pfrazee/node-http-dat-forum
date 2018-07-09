@@ -1,5 +1,8 @@
 # pauls-dat-forum
 
-A Web forum built on Dat and HTTP. This application demonstrates a "hybrid architecture." All user data is written to Dat archives which the user controls on their device. The HTTP server reads the users' Dat archives, then saves the posts into a SQLite database. Visitors to the HTTP server see those saved posts as threads. For visitors to create posts, they need to open the site with [a dat-supporting browser](https://beakerbrowser.com) so that they can create a Dat archive and write the posts.
+A Web forum built on Dat and HTTP. This application demonstrates a "dat + http hybrid architecture." Involves two roles:
+
+ - **Users**. Must use a browser that supports [Dat](https://datproject.org/). Each user has a "dat archive." They write their posts to `/posts/${site-hostname}/*.json`, and the data is synced to the server.
+ - **Server**. An HTTP server. Reads post-files from user dats and stores them in a SQLite DB. Visitors can browse the site to see the content. To participate, they create a Dat archive and submit it to the server.
 
 ![screenshot.png](screenshot.png)
