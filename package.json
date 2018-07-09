@@ -1,0 +1,22 @@
+{
+  "name": "pauls-dat-forum",
+  "version": "1.0.0",
+  "description": "A Web forum built on Dat and HTTP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Frazee <pfrazee@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "await-lock": "^1.1.3",
+    "co-express": "^2.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mkdirp": "^0.5.1",
+    "sqlite": "^2.9.2"
+  },
+  "devDependencies": {
+    "tempy": "^0.2.1"
+  }
+}

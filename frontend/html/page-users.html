@@ -1,0 +1,12 @@
+<%- include('header.html') -%>
+
+<h1><%= siteInfo.name %></h1>
+<h2>Users</h2>
+
+<ul>
+<% for (let user of users) { %>
+  <li><strong><a href="/user?name=<%= encodeURIComponent(user.name) %>"><%= user.name %></a></strong> - <a href="<%= user.url %>"><%= user.url %></a></li>
+<% } %>
+</ul>
+
+<%- include('footer.html') -%>

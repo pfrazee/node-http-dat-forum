@@ -1,0 +1,16 @@
+<%- include('header.html') -%>
+
+<h1><%= siteInfo.name %></h1>
+
+<a href="/">&laquo; back</a>
+
+<h2>User: <%= user.name %></h2>
+
+<ul>
+  <li><strong>url</strong>: <%= user.url %></li>
+  <li><strong>name</strong>: <%= user.name %></li>
+  <% if (user.isAdmin) { %><li><strong>Admin</strong></li><% } %>
+  <li><strong>joined</strong>: <%= (new Date(user.createdAt)).toLocaleString() %></li>
+</ul>
+
+<%- include('footer.html') -%>

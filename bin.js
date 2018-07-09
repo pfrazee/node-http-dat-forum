@@ -1,0 +1,1 @@
+require('./backend').setup('localhost', path(__dirname, 'data'))

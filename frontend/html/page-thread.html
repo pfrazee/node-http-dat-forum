@@ -1,0 +1,33 @@
+<%- include('header.html') -%>
+
+<h1><%= siteInfo.name %></h1>
+
+<a href="/">&laquo; back</a>
+
+<div class="thread">
+  <div class="post">
+    <h2 class="thread-title post-title"><a href="/thread/<%= rootPost.id %>"><%= rootPost.title %></a></h2>
+    <div class="thread-meta post-meta">by <a href="/user?name=<%= rootPost.authorName %>"><%= rootPost.authorName %></a> - <%= (new Date(rootPost.firstIndexedAt)).toLocaleString() %></div>
+    <div class="thread-body post-body"><%= rootPost.body %></div>
+  </div>
+
+  <div class="replies">
+  <% for (let reply of replies) { %>
+    <div class="reply post">
+      <div class="reply-title post-title"><strong><%= reply.title %></strong></div>
+      <div class="reply-meta post-meta">by <a href="/user?name=<%= reply.authorName %>"><%= reply.authorName %></a> - <%= (new Date(reply.firstIndexedAt)).toLocaleString() %></div>
+      <div class="reply-body post-body"><%= reply.body %></div>
+    </div>
+  <% } %>
+  </div>
+
+  <form class="reply-composer">
+    <input id="thread-root-url-input" type="hidden" value="<%= rootPost.url %>" />
+    <input id="thread-parent-url-input" type="hidden" value="<%= replies.length ? replies[replies.length - 1].url : rootPost.url %>" />
+    <div><input id="title-input" type="text" placeholder="Title" /></div>
+    <div><textarea id="body-input" type="text" placeholder="Reply"></textarea></div>
+    <div><button type="submit">Submit reply</button>
+  </form>
+</div>
+
+<%- include('footer.html') -%>

@@ -1,0 +1,23 @@
+<%- include('header.html') -%>
+
+<h1><%= siteInfo.name %></h1>
+<h2>Threads</h2>
+
+<div class="threads">
+<% for (let post of posts) { %>
+  <div class="thread">
+    <h3 class="thread-title"><a href="/thread/<%= post.id %>"><%= post.title %></a></h3>
+    <div class="thread-meta">by <a href="/user?name=<%= post.authorName %>"><%= post.authorName %></a> - <%= (new Date(post.firstIndexedAt)).toLocaleString() %></div>
+  </div>
+<% } %>
+</div>
+
+<h2>Users</h2>
+
+<ul>
+<% for (let user of users) { %>
+  <li><strong><a href="/user?name=<%= encodeURIComponent(user.name) %>"><%= user.name %></a></strong> - <a href="<%= user.url %>"><%= user.url %></a></li>
+<% } %>
+</ul>
+
+<%- include('footer.html') -%>
